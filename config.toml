@@ -11,7 +11,6 @@ googleAnalytics = 'UA-36145597-1'
 [taxonomies]
   category = "categories"
   tag = "tags"
-
 [params]
   dataAdClient = "ca-pub-8600046037791786"
   dataAdSlot = "3462697759"
