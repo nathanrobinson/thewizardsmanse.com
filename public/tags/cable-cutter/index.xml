@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cable Cutter on The Wizard&#39;s Manse</title>
-    <link>http://thewizardsmanse.com/tags/cable-cutter/index.xml</link>
+    <link>https://www.thewizardsmanse.com/tags/cable-cutter/index.xml</link>
     <description>Recent content in Cable Cutter on The Wizard&#39;s Manse</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2017 The Wizard&#39;s Manse.</copyright>
-    <atom:link href="http://thewizardsmanse.com/tags/cable-cutter/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.thewizardsmanse.com/tags/cable-cutter/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Fun with HDTV Antennas</title>
-      <link>http://thewizardsmanse.com/fun-with-hdtv-antennas/</link>
+      <link>https://www.thewizardsmanse.com/fun-with-hdtv-antennas/</link>
       <pubDate>Mon, 18 Jan 2016 00:53:19 +0000</pubDate>
       
-      <guid>http://thewizardsmanse.com/fun-with-hdtv-antennas/</guid>
+      <guid>https://www.thewizardsmanse.com/fun-with-hdtv-antennas/</guid>
       <description>&lt;p&gt;My cable internet provider recently switched to all digital channels so that they could encrypt local broadcasts. This put me in a bit of a bind since all my TVs were using built-in QAM tuners to get local stations. I needed to supply signals to three TVs and two &lt;a href=&#34;http://smile.amazon.com/Hauppauge-1213-WinTV-HVR-2255-Control-Receiver/dp/B001E2V7R8&#34; target=&#34;_blank&#34;&gt;HDTV capture cards&lt;/a&gt; on my &lt;a href=&#34;https://en.wikipedia.org/wiki/Home_theater_PC&#34; target=&#34;_blank&#34;&gt;HTPC&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;My options were, pay $3/month/tv to the cable company for digital boxes to get &amp;#8220;free&amp;#8221; OTA (over the air) broadcasts or pay $70 for a &lt;a href=&#34;http://smile.amazon.com/gp/product/B00CXQO00K?psc=1&amp;redirect=true&amp;ref_=ox_sc_sfl_title_1&amp;smid=ATVPDKIKX0DER&#34; target=&#34;_blank&#34;&gt;high-end HDTV antenna&lt;/a&gt; plus an &lt;a href=&#34;http://smile.amazon.com/DuaFire-Antenna-Amplifier-Booster-Supply-up/dp/B0196AN9WU/ref=sr_1_1?ie=UTF8&amp;qid=1453048463&amp;sr=8-1&amp;keywords=antenna+amplifier&#34; target=&#34;_blank&#34;&gt;amplifier&lt;/a&gt; and &lt;a href=&#34;http://smile.amazon.com/BAMF-4-Way-Splitter-Bi-Directional-5-2300MHz/dp/B017T9KF1S/ref=sr_1_1?s=electronics&amp;ie=UTF8&amp;qid=1453049025&amp;sr=1-1&amp;keywords=4+way+catv+splitter&#34; target=&#34;_blank&#34;&gt;splitter&lt;/a&gt; or &lt;a href=&#34;http://smile.amazon.com/dp/B001222256?psc=1&#34; target=&#34;_blank&#34;&gt;amplified splitter&lt;/a&gt; and rewire my house to hook the antenna up to all my TVs while still allowing my cable internet to get to my cable modem.&lt;/p&gt;
@@ -30,7 +30,7 @@
 &lt;p&gt;The antenna took about 2 hours to build. It is important to follow the template exactly because the size is very important to receive HDTV signals. After spending all evening building a single antenna I still had to get a &lt;a href=&#34;http://smile.amazon.com/300-Ohm-UHF-Matching-Transformer/dp/B0002ZPIOG/ref=sr_1_2?ie=UTF8&amp;amp;qid=1453561976&amp;amp;sr=8-2&amp;amp;keywords=balun&#34;&gt;balun&lt;/a&gt;. Here&amp;#8217;s the result:&lt;/p&gt;
 
 &lt;div id=&#34;attachment_155&#34; style=&#34;width: 190px&#34; class=&#34;wp-caption alignleft&#34;&gt;
-  &lt;a href=&#34;http://thewizardsmanse.com/2016/01/Antenna_1.jpg&#34; rel=&#34;attachment wp-att-155&#34;&gt;&lt;img class=&#34;wp-image-155 size-full&#34; src=&#34;http://thewizardsmanse.com/2016/01/Antenna_1.jpeg&#34; alt=&#34;Double Bowtie Antenna&#34; width=&#34;180&#34; height=&#34;240&#34; /&gt;&lt;/a&gt;
+  &lt;a href=&#34;https://www.thewizardsmanse.com/2016/01/Antenna_1.jpg&#34; rel=&#34;attachment wp-att-155&#34;&gt;&lt;img class=&#34;wp-image-155 size-full&#34; src=&#34;https://www.thewizardsmanse.com/2016/01/Antenna_1.jpeg&#34; alt=&#34;Double Bowtie Antenna&#34; width=&#34;180&#34; height=&#34;240&#34; /&gt;&lt;/a&gt;
   
   &lt;p class=&#34;wp-caption-text&#34;&gt;
     Double Bowtie Antenna
@@ -38,7 +38,7 @@
 &lt;/div&gt;
 
 &lt;div id=&#34;attachment_156&#34; style=&#34;width: 190px&#34; class=&#34;wp-caption alignleft&#34;&gt;
-  &lt;a href=&#34;http://thewizardsmanse.com/2016/01/Antenna_2.jpg&#34; rel=&#34;attachment wp-att-156&#34;&gt;&lt;img class=&#34;wp-image-156 size-full&#34; src=&#34;http://thewizardsmanse.com/2016/01/Antenna_2.jpeg&#34; alt=&#34;Double Bowtie Reflector&#34; width=&#34;180&#34; height=&#34;240&#34; /&gt;&lt;/a&gt;
+  &lt;a href=&#34;https://www.thewizardsmanse.com/2016/01/Antenna_2.jpg&#34; rel=&#34;attachment wp-att-156&#34;&gt;&lt;img class=&#34;wp-image-156 size-full&#34; src=&#34;https://www.thewizardsmanse.com/2016/01/Antenna_2.jpeg&#34; alt=&#34;Double Bowtie Reflector&#34; width=&#34;180&#34; height=&#34;240&#34; /&gt;&lt;/a&gt;
   
   &lt;p class=&#34;wp-caption-text&#34;&gt;
     Double Bowtie Reflector
@@ -85,7 +85,7 @@
 
 &lt;div class=&#34;comment-body&#34;&gt;
   &lt;div id=&#34;attachment_157&#34; style=&#34;width: 190px&#34; class=&#34;wp-caption alignleft&#34;&gt;
-    &lt;a href=&#34;http://thewizardsmanse.com/2016/01/Antenna_3.jpg&#34; rel=&#34;attachment wp-att-157&#34;&gt;&lt;img class=&#34;wp-image-157 size-full&#34; src=&#34;http://thewizardsmanse.com/2016/01/Antenna_3.jpeg&#34; alt=&#34;Whip Antenna&#34; width=&#34;180&#34; height=&#34;240&#34; /&gt;&lt;/a&gt;
+    &lt;a href=&#34;https://www.thewizardsmanse.com/2016/01/Antenna_3.jpg&#34; rel=&#34;attachment wp-att-157&#34;&gt;&lt;img class=&#34;wp-image-157 size-full&#34; src=&#34;https://www.thewizardsmanse.com/2016/01/Antenna_3.jpeg&#34; alt=&#34;Whip Antenna&#34; width=&#34;180&#34; height=&#34;240&#34; /&gt;&lt;/a&gt;
     
     &lt;p class=&#34;wp-caption-text&#34;&gt;
       Whip Antenna

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Knockout on The Wizard&#39;s Manse</title>
-    <link>http://thewizardsmanse.com/categories/knockout/index.xml</link>
+    <link>https://www.thewizardsmanse.com/categories/knockout/index.xml</link>
     <description>Recent content in Knockout on The Wizard&#39;s Manse</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2017 The Wizard&#39;s Manse.</copyright>
-    <atom:link href="http://thewizardsmanse.com/categories/knockout/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.thewizardsmanse.com/categories/knockout/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Automatic Paging with Knockout data-bindings</title>
-      <link>http://thewizardsmanse.com/automatic-paging-with-knockout-data-bindings/</link>
+      <link>https://www.thewizardsmanse.com/automatic-paging-with-knockout-data-bindings/</link>
       <pubDate>Tue, 03 Sep 2013 20:55:38 +0000</pubDate>
       
-      <guid>http://thewizardsmanse.com/automatic-paging-with-knockout-data-bindings/</guid>
+      <guid>https://www.thewizardsmanse.com/automatic-paging-with-knockout-data-bindings/</guid>
       <description>&lt;p&gt;I&amp;#8217;ve been a heavy user of &lt;a title=&#34;Knockout JS&#34; href=&#34;http://knockoutjs.com/&#34; target=&#34;_blank&#34;&gt;Knockout JS&lt;/a&gt; and MVVM with JavaScript for over a year and I&amp;#8217;ve found most designs can be achieved with the basic data-bindings. There are two scenarios that I have found which require specialized bindings. The first is a select box with numerous options. The second is a long list of data that doesn&amp;#8217;t fit on a single screen.&lt;/p&gt;
 
 &lt;p&gt;I prefer to use the &lt;a title=&#34;chosen jQuery plugin&#34; href=&#34;http://harvesthq.github.io/chosen/&#34; target=&#34;_blank&#34;&gt;chosen jQuery plugin&lt;/a&gt; to manage unwieldy select boxes. The problem is combining the jQuery plugin with Knockout data-binding. For this I use a &lt;a title=&#34;Knockout Binding Extension For Chosen&#34; href=&#34;http://www.nuget.org/packages/cb.ko.binding.chosen/&#34; target=&#34;_blank&#34;&gt;Knockout Binding Extension For Chosen&lt;/a&gt;. One caveat on this binding is that it can take a while to bind. If you have multiple select boxes with large amounts of data displaying dynamically, you can notice a significant delay. I ran into this problem when binding to an editable grid. The entire grid would display with the select boxes hidden until the user selects that row for editing. The grid would lag by up to 10 seconds while all the select boxes rendered using the chosen plugin. To speed up the grid I wrapped each select box in a span with an &amp;#8220;if&amp;#8221; binding. This kept the select boxes from rendering until the user actually edited that row. Since only one row&amp;#8217;s worth of select boxes were being rendered instead of all rows, the delay wasn&amp;#8217;t as noticeable.&lt;/p&gt;

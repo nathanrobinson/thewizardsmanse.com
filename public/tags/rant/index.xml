@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rant on The Wizard&#39;s Manse</title>
-    <link>http://thewizardsmanse.com/tags/rant/index.xml</link>
+    <link>https://www.thewizardsmanse.com/tags/rant/index.xml</link>
     <description>Recent content in Rant on The Wizard&#39;s Manse</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2017 The Wizard&#39;s Manse.</copyright>
-    <atom:link href="http://thewizardsmanse.com/tags/rant/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.thewizardsmanse.com/tags/rant/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>My first rant…</title>
-      <link>http://thewizardsmanse.com/my-first-rant/</link>
+      <link>https://www.thewizardsmanse.com/my-first-rant/</link>
       <pubDate>Sat, 10 Nov 2012 05:09:05 +0000</pubDate>
       
-      <guid>http://thewizardsmanse.com/my-first-rant/</guid>
+      <guid>https://www.thewizardsmanse.com/my-first-rant/</guid>
       <description>&lt;p&gt;A friend sent me a &lt;a href=&#34;http://elm-lang.org/learn/Escape-from-Callback-Hell.elm&#34;&gt;page about elm&lt;/a&gt;. It bemoans the idea of &amp;#8220;Callback Hell&amp;#8221; and purports to resolve the situation with a completely new language for web scripting&amp;#8230; It didn&amp;#8217;t take me long to feel the urge to violently disagree with the premise of the page. The author compares callbacks to &amp;#8220;goto&amp;#8221; statements.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;

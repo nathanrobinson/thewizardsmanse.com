@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code on The Wizard&#39;s Manse</title>
-    <link>http://thewizardsmanse.com/categories/code/index.xml</link>
+    <link>https://www.thewizardsmanse.com/categories/code/index.xml</link>
     <description>Recent content in Code on The Wizard&#39;s Manse</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2017 The Wizard&#39;s Manse.</copyright>
-    <atom:link href="http://thewizardsmanse.com/categories/code/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.thewizardsmanse.com/categories/code/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Automatic Paging with Knockout data-bindings</title>
-      <link>http://thewizardsmanse.com/automatic-paging-with-knockout-data-bindings/</link>
+      <link>https://www.thewizardsmanse.com/automatic-paging-with-knockout-data-bindings/</link>
       <pubDate>Tue, 03 Sep 2013 20:55:38 +0000</pubDate>
       
-      <guid>http://thewizardsmanse.com/automatic-paging-with-knockout-data-bindings/</guid>
+      <guid>https://www.thewizardsmanse.com/automatic-paging-with-knockout-data-bindings/</guid>
       <description>&lt;p&gt;I&amp;#8217;ve been a heavy user of &lt;a title=&#34;Knockout JS&#34; href=&#34;http://knockoutjs.com/&#34; target=&#34;_blank&#34;&gt;Knockout JS&lt;/a&gt; and MVVM with JavaScript for over a year and I&amp;#8217;ve found most designs can be achieved with the basic data-bindings. There are two scenarios that I have found which require specialized bindings. The first is a select box with numerous options. The second is a long list of data that doesn&amp;#8217;t fit on a single screen.&lt;/p&gt;
 
 &lt;p&gt;I prefer to use the &lt;a title=&#34;chosen jQuery plugin&#34; href=&#34;http://harvesthq.github.io/chosen/&#34; target=&#34;_blank&#34;&gt;chosen jQuery plugin&lt;/a&gt; to manage unwieldy select boxes. The problem is combining the jQuery plugin with Knockout data-binding. For this I use a &lt;a title=&#34;Knockout Binding Extension For Chosen&#34; href=&#34;http://www.nuget.org/packages/cb.ko.binding.chosen/&#34; target=&#34;_blank&#34;&gt;Knockout Binding Extension For Chosen&lt;/a&gt;. One caveat on this binding is that it can take a while to bind. If you have multiple select boxes with large amounts of data displaying dynamically, you can notice a significant delay. I ran into this problem when binding to an editable grid. The entire grid would display with the select boxes hidden until the user selects that row for editing. The grid would lag by up to 10 seconds while all the select boxes rendered using the chosen plugin. To speed up the grid I wrapped each select box in a span with an &amp;#8220;if&amp;#8221; binding. This kept the select boxes from rendering until the user actually edited that row. Since only one row&amp;#8217;s worth of select boxes were being rendered instead of all rows, the delay wasn&amp;#8217;t as noticeable.&lt;/p&gt;
@@ -76,10 +76,10 @@
     
     <item>
       <title>Fun with knockout.js</title>
-      <link>http://thewizardsmanse.com/fun-with-knockout-js/</link>
+      <link>https://www.thewizardsmanse.com/fun-with-knockout-js/</link>
       <pubDate>Mon, 04 Mar 2013 03:49:19 +0000</pubDate>
       
-      <guid>http://thewizardsmanse.com/fun-with-knockout-js/</guid>
+      <guid>https://www.thewizardsmanse.com/fun-with-knockout-js/</guid>
       <description>&lt;p&gt;A while ago I started looking into &lt;a title=&#34;knockout.js&#34; href=&#34;http://knockoutjs.com/&#34; target=&#34;_blank&#34;&gt;knockout.js&lt;/a&gt; for an internal MVC website that I&amp;#8217;m working on. Originally I was trying to solve the problem of a very large DOM that only displays a fraction of itself at any time. Knockout handles this very nicely with it&amp;#8217;s &lt;a title=&#34;if binding&#34; href=&#34;http://knockoutjs.com/documentation/if-binding.html&#34; target=&#34;_blank&#34;&gt;if binding&lt;/a&gt;. The more I used knockout, however, the more I fell in love with the &lt;a title=&#34;MVVM&#34; href=&#34;http://en.wikipedia.org/wiki/Model_View_ViewModel&#34; target=&#34;_blank&#34;&gt;MVVM pattern&lt;/a&gt;. In fact, if xaml bindings were as easy as knockout bindings, I wouldn&amp;#8217;t be so hesitant to jump into WPF programming!&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
@@ -159,19 +159,19 @@
     
     <item>
       <title>Image Processing Part 1</title>
-      <link>http://thewizardsmanse.com/image-processing-part-1/</link>
+      <link>https://www.thewizardsmanse.com/image-processing-part-1/</link>
       <pubDate>Fri, 23 Nov 2012 04:16:04 +0000</pubDate>
       
-      <guid>http://thewizardsmanse.com/image-processing-part-1/</guid>
+      <guid>https://www.thewizardsmanse.com/image-processing-part-1/</guid>
       <description>&lt;p&gt;This is, hopefully, the first in a series of posts using this codebase. The topics will be varied, but hopefully the codebase will tie them together&amp;#8230;&lt;/p&gt;
 
 &lt;p&gt;Can you tell what is different between this image:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://thewizardsmanse.com/2012/11/Redbud.JPG&#34;&gt;&lt;img class=&#34;size-full wp-image-30 aligncenter&#34; title=&#34;Redbud&#34; src=&#34;http://thewizardsmanse.com/2012/11/Redbud.jpg&#34; alt=&#34;Origional Redbud image&#34; width=&#34;300&#34; height=&#34;200&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.thewizardsmanse.com/2012/11/Redbud.JPG&#34;&gt;&lt;img class=&#34;size-full wp-image-30 aligncenter&#34; title=&#34;Redbud&#34; src=&#34;https://www.thewizardsmanse.com/2012/11/Redbud.jpg&#34; alt=&#34;Origional Redbud image&#34; width=&#34;300&#34; height=&#34;200&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;and this one:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://thewizardsmanse.com/2012/11/Redbud2.bmp&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-31&#34; title=&#34;Redbud2&#34; src=&#34;http://thewizardsmanse.com/2012/11/Redbud2.jpg&#34; alt=&#34;Modified Redbud Image&#34; width=&#34;300&#34; height=&#34;200&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.thewizardsmanse.com/2012/11/Redbud2.bmp&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-31&#34; title=&#34;Redbud2&#34; src=&#34;https://www.thewizardsmanse.com/2012/11/Redbud2.jpg&#34; alt=&#34;Modified Redbud Image&#34; width=&#34;300&#34; height=&#34;200&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Aside from the obvious visual differences, there is an important, hidden difference. You can click-through and grab the original versions and try to figure it out.&lt;/p&gt;
 
@@ -270,10 +270,10 @@
     
     <item>
       <title>My first rant…</title>
-      <link>http://thewizardsmanse.com/my-first-rant/</link>
+      <link>https://www.thewizardsmanse.com/my-first-rant/</link>
       <pubDate>Sat, 10 Nov 2012 05:09:05 +0000</pubDate>
       
-      <guid>http://thewizardsmanse.com/my-first-rant/</guid>
+      <guid>https://www.thewizardsmanse.com/my-first-rant/</guid>
       <description>&lt;p&gt;A friend sent me a &lt;a href=&#34;http://elm-lang.org/learn/Escape-from-Callback-Hell.elm&#34;&gt;page about elm&lt;/a&gt;. It bemoans the idea of &amp;#8220;Callback Hell&amp;#8221; and purports to resolve the situation with a completely new language for web scripting&amp;#8230; It didn&amp;#8217;t take me long to feel the urge to violently disagree with the premise of the page. The author compares callbacks to &amp;#8220;goto&amp;#8221; statements.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
