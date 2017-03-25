@@ -1,0 +1,29 @@
+languageCode = "en-us"
+title = "The Wizard's Manse"
+baseurl = "https://www.thewizardsmanse.com"
+copyright = "Copyright (c) 2017 The Wizard's Manse."
+themesdir = "themes"
+theme = "hugo_eiio"
+Paginate = 15 
+PaginatePath = "page"
+pygmentsuseclasses = true
+googleAnalytics = 'UA-36145597-1'
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  dataAdClient = "ca-pub-8600046037791786"
+  dataAdSlot = "3462697759"
+  addthisPubid = "ra-58d6920fd8eec028"
+  disqusShortname = "thewizardsmanse"
+  description = "A blog about wizards and programming"
+  author = "Nathan Robinson"
+  github = "github nathanrobinson"
+  duoshuo = false #disable duoshuo comment
+  securityPolicy = false #disable https content security policy
+  footerRight = "" #footer right content
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"

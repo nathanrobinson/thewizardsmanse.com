@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rant on The Wizard&#39;s Manse</title>
+    <link>http://thewizardsmanse.com/tags/rant/index.xml</link>
+    <description>Recent content in Rant on The Wizard&#39;s Manse</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2017 The Wizard&#39;s Manse.</copyright>
+    <atom:link href="http://thewizardsmanse.com/tags/rant/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My first rant…</title>
+      <link>http://thewizardsmanse.com/my-first-rant/</link>
+      <pubDate>Sat, 10 Nov 2012 05:09:05 +0000</pubDate>
+      
+      <guid>http://thewizardsmanse.com/my-first-rant/</guid>
+      <description>&lt;p&gt;A friend sent me a &lt;a href=&#34;http://elm-lang.org/learn/Escape-from-Callback-Hell.elm&#34;&gt;page about elm&lt;/a&gt;. It bemoans the idea of &amp;#8220;Callback Hell&amp;#8221; and purports to resolve the situation with a completely new language for web scripting&amp;#8230; It didn&amp;#8217;t take me long to feel the urge to violently disagree with the premise of the page. The author compares callbacks to &amp;#8220;goto&amp;#8221; statements.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;A callback is simply a function, anonymous or named, that is passed into another method to be called later. jQuery loves callbacks, but my first exposure to them was in c++.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#8217;s an example:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: jscript; title: ; notranslate&#34; title=&#34;&#34;&gt;function Method1(callback){
+    ...
+    callback(someValue);
+}
+
+function Method2(myValue){
+    ...
+}
+
+Method1(Method2);
+&lt;/pre&gt;
+
+&lt;p&gt;The thing to keep in mind is that modern languages have &amp;#8220;anonymous&amp;#8221; methods, so you wouldn&amp;#8217;t need to declare Method2..&lt;/p&gt;
+
+&lt;pre class=&#34;brush: jscript; title: ; notranslate&#34; title=&#34;&#34;&gt;function Method1(callback){
+    ...
+    callback(someValue);
+}
+
+Method1(function(myValue){...});
+&lt;/pre&gt;
+
+&lt;p&gt;So, what&amp;#8217;s wrong with the stance that callbacks are unreadable?&lt;/p&gt;
+
+&lt;p&gt;I don&amp;#8217;t know&amp;#8230; just the fact that they aren&amp;#8217;t. Especially the example that he gives:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: jscript; title: ; notranslate&#34; title=&#34;&#34;&gt;function getPhoto(tag, handlerCallback) {
+    asyncGet(requestTag(tag), function(photoList) {
+        asyncGet(requestOneFrom(photoList), function(photoSizes) {
+            handlerCallback(sizesToPhoto(photoSizes));
+        });
+    });
+}
+
+getPhoto(&#39;tokyo&#39;, drawOnScreen);
+&lt;/pre&gt;
+
+&lt;p&gt;I personally find that much more readable than his alternative:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: plain; title: ; notranslate&#34; title=&#34;&#34;&gt;getPhotos = lift sizesToPhoto . send . lift requestOneFrom . send . lift requestTag
+
+(tagInput, tags) = Input.textField &#34;Flickr Instant Search&#34;
+
+scene (w,h) img = flow down [ container w 60 middle tagInput, container w (h - 100) middle img ]
+
+main = lift2 scene Window.dimensions(images (getPhotos (dropRepeats tags)))
+&lt;/pre&gt;
+
+&lt;p&gt;especially given all the helper methods that he includes&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;I certainly don&amp;#8217;t think that callbacks should be singled out and compared to &amp;#8220;goto&amp;#8221;. Really, any function call is a glorified &amp;#8220;goto&amp;#8221;; they just have pretty curly braces to set them apart.&lt;/p&gt;
+
+&lt;p&gt;I can&amp;#8217;t help but wonder if &amp;#8220;goto&amp;#8221; would have gotten such a bad wrap if the old text editors would have had shift-F12 support. I, for one, always regret never having the chance to use &amp;#8220;comefrom&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;As anyone who works on enterprise level applications knows, code is messy. Especially when the bosses don&amp;#8217;t care what it looks like, just how quickly you can write it. That&amp;#8217;s why modern IDEs arose, because it&amp;#8217;s easier to build a program to navigate your code for you, than to write code that&amp;#8217;s easier to navigate.&lt;/p&gt;
+
+&lt;p&gt;So, you can go to great lengths, even writing new languages, to avoid using callbacks, or you could use them in a way that makes them easy to understand.&lt;/p&gt;
+
+&lt;p&gt;In then end, what really matters to me is that I get to keep my curly braces.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

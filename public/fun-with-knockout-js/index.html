@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="XN4YmHgE76jTp2kNQ9qnsVSApl6yIQBzdyLe0BnbFks" />
+
+  <title>
+    
+    
+    Fun with knockout.js - The Wizard&#39;s Manse
+    
+  </title>
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/holder.min.js" type='text/javascript'></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="canonical" href="http://thewizardsmanse.com/fun-with-knockout-js/">
+  
+
+<link rel="stylesheet" href="/css/bootstrap-toc.min.css" type="text/css">
+
+<script src="/js/bootstrap-toc.min.js" type="text/javascript"></script>
+   </head>
+   <body data-spy="scroll" data-target="#toc">
+     <header class="navbar navbar-inverse navbar-fixed-top" id="top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://thewizardsmanse.com">The Wizard&#39;s Manse</a>
+    </div>
+
+    
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+	
+	
+	<li  ><a href="/">Home</a></li>
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+      </ul>
+</nav>
+</header>
+
+     <div class="jumbotron masthead" role="main">
+       <div class="container">
+	 <div class="row">
+	   <div class="col-sm-3">
+
+		 <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+  </div>
+
+ 	   <div class="col-md-8 col-md-offset-2">
+	   
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/github.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script type="text/javascript">
+  hljs.initHighlightingOnLoad();
+$(document).ready(function() {
+  $('pre').each(function(i, block) {
+  hljs.highlightBlock(block);
+  });
+});
+</script>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+      <article itemscope itemtype="http://schema.org/BlogPosting" id="post" >
+	<h1 itemprop="name headline"> Fun with knockout.js </h1>
+	<p>
+	  
+	  <small class="text-muted">
+	    <span itemprop="author" itemscope itemtype="http://schema.org/Person" >
+	      <span itemprop="name">Nathan Robinson</span>
+	    </span>  posted by:&nbsp;<time itemprop="datePublished"  content="Mon Mar 4,4036"  datetime="2013-03-04 03:49:19 &#43;0000 &#43;0000" itemprop="datePublished">Mon Mar 4, 2013 </time>
+	  </small>
+	</p>
+
+	<p>
+	  
+	  <a href='/'><span class="label label-danger"></span></a>
+
+	</p>
+
+
+	<hr/>
+	<span itemprop="articleBody">
+	  <p>A while ago I started looking into <a title="knockout.js" href="http://knockoutjs.com/" target="_blank">knockout.js</a> for an internal MVC website that I&#8217;m working on. Originally I was trying to solve the problem of a very large DOM that only displays a fraction of itself at any time. Knockout handles this very nicely with it&#8217;s <a title="if binding" href="http://knockoutjs.com/documentation/if-binding.html" target="_blank">if binding</a>. The more I used knockout, however, the more I fell in love with the <a title="MVVM" href="http://en.wikipedia.org/wiki/Model_View_ViewModel" target="_blank">MVVM pattern</a>. In fact, if xaml bindings were as easy as knockout bindings, I wouldn&#8217;t be so hesitant to jump into WPF programming!</p>
+
+<p></p>
+
+<p>The power of MVVM is the ability to have your view model handle your logic in code without having the complex interaction with your html DOM that is required by jQuery. As an example, I recreated a jQuery <a href="http://www.datatables.net/" target="_blank">DataTable</a> using only <a href="http://jsfiddle.net/vdrzv/4/" target="_blank">knockout bindings</a>.</p>
+
+<p>One typical need when using MVVM is to take action on the UI when a value is updated. I have two scenarios and four different binding strategies in this <a title="jsFiddle" href="http://jsfiddle.net/W2heu/" target="_blank">example</a>.</p>
+
+<p>In the first two bindings we will validate that the text entered is numeric. If it isn&#8217;t, then an error will be displayed to the user until the entry is corrected. In the last two bindings, the entry will be validated and invalid entries will be immediately replaced with &#8220;0&#8221;.</p>
+
+<p>The first binding will be the most familiar to users of jQuery. When your model is tightly coupled with your UI, you create events that fire when the user interacts with a DOM node and then do some action inside that event. In jQuery, validating user input would look something like this:</p>
+
+<pre class="brush: jscript; title: ; notranslate" title="">$('input').on('change', function(){
+    if(isInvalid(this.val()))
+        handleInvalidValues(this);
+});
+</pre>
+
+<p>The equivalent in knockout is:</p>
+
+<pre class="brush: xml; title: ; notranslate" title="">&lt;input type="text" data-bind="value: number1, valueUpdate: 'afterkeydown', event: { change: validateNumber1 }, css: { error : !number1valid() }" /&gt;
+</pre>
+
+<p>&nbsp;</p>
+
+<pre class="brush: jscript; title: ; notranslate" title="">self.number1 = ko.observable(0);
+ self.number1valid = ko.observable(true);
+ self.validateNumber1 = function () {
+ self.number1valid(!isNaN(self.number1()));
+ };
+</pre>
+
+<p>the &#8220;event: { change: validateNumber1 }&#8221; calls the validateNumber1 function on your ViewModel whenever the input is changed.</p>
+
+<p>In Test 1 in the <a title="jsFiddle" href="http://jsfiddle.net/W2heu/" target="_blank">example fiddle</a>, the update doesn&#8217;t occur until you leave the textbox. To make better use of the MVVM pattern, you have to stop thinking about the UI controlling the flow of you model and start envisioning the ViewModel controlling the flow of your UI. Knockout will do all the work of updating your ViewModel based on user input and will update you UI based on what your ViewModel does with that input. This makes for some very powerful and simple design even sans jQuery.</p>
+
+<p>Compare the performance of Test 1 with Test 2. Test 2 immediately displays an error message when an invalid character is typed and immediately removes the error when the input is corrected. Knockout does all the heavy lifting for us. All we do is define what is valid by using a computed observable function. As soon as our observable is updated, knockout checks the computed observables that are dependent on it and updates the UI if they change. No events need to be fired. No special methods need to be called. And the update is immediate.</p>
+
+<pre class="brush: jscript; title: ; notranslate" title="">self.number2 = ko.observable(0);
+    self.number2valid = ko.computed(function () {
+        return !isNaN(self.number2());
+</pre>
+
+<p>As you can see, the code is much simpler, too.</p>
+
+<p>C# programmers may recognize the third binding style as a property with a backing field.</p>
+
+<pre class="brush: jscript; title: ; notranslate" title="">self._number3 = ko.observable(0);
+    self.number3 = ko.computed({
+        read: function () {
+            return self._number3();
+        },
+        write: function (value) {
+            self._number3(value);
+            if (isNaN(value)) self._number3(0);
+        },
+        owner: self
+    });
+</pre>
+
+<p>We use the computed to intercept, validate, and possibly modify the incoming value. The odd part about updating the backing field before validating is an artifact of how knockout updates the ui. If we set _number3 to 0 when the incoming value was invalid (say &#8220;0G&#8221; for example) if _number3 was already 0, then knockout will not see a need to update the ui. This will leave what the user typed in the text box. To work around this, we set _number3 to whatever the user entered and then if it&#8217;s invalid, we set it to 0, so knockout will immediately update the text box value back to 0.</p>
+
+<p>The final binding monitors the input in a simpler fashion.</p>
+
+<pre class="brush: jscript; title: ; notranslate" title="">self.number4 = ko.observable(0);
+    self.number4.subscribe(function () {
+        if (isNaN(self.number4())) self.number4(0);
+    });
+</pre>
+
+<p>Instead of intercepting the value, we subscribe to the observable and validate on any change. We don&#8217;t require an extra backing field, and the code is much simpler. Both Test 3 and Test 4 work equally well, but Test 4 is simpler to understand and code.</p>
+
+<p>While all 4 examples work, Test 1 is too dependent on the ui bindings to be a good implementation of MVVM. If you don&#8217;t add the event binding to call your validation function, then none of your validation will happen. The method used in Test 2 is simpler to understand and more reliable because validation will always happen automatically. Test 3 is an example of carryover from a C# mindset and doesn&#8217;t take full advantage of the power of the knockout implementation of MVVM. It&#8217;s OK to subscribe to your ow properties and can greatly simplify your ViewModel.</p>
+
+<p>I hope this little look into the knockout MVVM library. I really dig it and look forward to using it more.</p>
+	</span>
+
+	
+	<hr/>
+<p>
+  
+    <strong>Categories</strong>:
+
+
+	  
+	<a class="btn btn-default btn-xs" href="/categories/code">Code</a>
+	
+	<a class="btn btn-default btn-xs" href="/categories/javascript">JavaScript</a>
+	
+	<br/>
+	
+	
+<strong>Tags:</strong>
+  <a itemprop="keywords" class=" label label-danger" href="/tags/javascript">JavaScript</a> <a itemprop="keywords" class=" label label-danger" href="/tags/mvvm">MVVM</a> <a itemprop="keywords" class=" label label-danger" href="/tags/knockout.js">knockout.js</a>
+
+
+	<hr/>
+	
+ <script type="text/javascript" src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58d6920fd8eec028'></script> 
+ <div class="addthis_inline_share_toolbox"></div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thewizardsmanse';
+    var disqus_identifier = 'http:\/\/thewizardsmanse.com\/fun-with-knockout-js\/';
+    var disqus_title = 'Fun with knockout.js';
+    var disqus_url = 'http:\/\/thewizardsmanse.com\/fun-with-knockout-js\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+      </div>
+      </div></article>
+
+
+	 </div>
+
+	 </div>
+       </div>
+     </div>
+
+ <footer class="container footer">
+  <div class="row">
+    <div class="col-md-10">
+      <small class="text-muted">Copyright (c) 2017 The Wizard&#39;s Manse.</small>
+    </div>
+    <div class="col-md-2">
+      <small class="text-muted"></small>
+      </div>
+   </div>
+ </footer>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-36145597-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8600046037791786"
+     data-ad-slot="3462697759"
+     data-ad-format="auto"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    Running=1;
+</script>
+<script async src="/ads.js"></script>
+<script async src="/script.js"></script>
+
+</body></html>
