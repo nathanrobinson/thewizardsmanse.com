@@ -1,0 +1,22 @@
+{
+  "name": "thewizardsmanse.com",
+  "version": "1.0.0",
+  "description": "The Wizard's Manse",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://nathanrobinson@nathanrobinson.visualstudio.com:22/DefaultCollection/_git/thewizardsmanse"
+  },
+  "keywords": [
+    "Wizard",
+    "Manse"
+  ],
+  "author": "Nathan J. Robinson",
+  "license": "ISC",
+  "devDependencies": {
+    "hugo-cli": "^0.4.1"
+  }
+}

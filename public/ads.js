@@ -1,1 +1,0 @@
-var Running=10;
