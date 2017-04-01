@@ -1,22 +1,19 @@
 {
-  "name": "thewizardsmanse.com",
-  "version": "1.0.0",
-  "description": "The Wizard's Manse",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
+  "hexo": {
+    "version": "3.2.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "ssh://nathanrobinson@nathanrobinson.visualstudio.com:22/DefaultCollection/_git/thewizardsmanse"
-  },
-  "keywords": [
-    "Wizard",
-    "Manse"
-  ],
-  "author": "Nathan J. Robinson",
-  "license": "ISC",
-  "devDependencies": {
-    "hugo-cli": "^0.4.1"
+  "dependencies": {
+    "hexo": "^3.2.0",
+    "hexo-generator-archive": "^0.1.4",
+    "hexo-generator-category": "^0.1.3",
+    "hexo-generator-index": "^0.2.0",
+    "hexo-generator-tag": "^0.2.0",
+    "hexo-renderer-ejs": "^0.2.0",
+    "hexo-renderer-stylus": "^0.3.1",
+    "hexo-renderer-marked": "^0.2.10",
+    "hexo-server": "^0.2.0"
   }
 }
