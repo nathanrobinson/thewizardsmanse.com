@@ -25,6 +25,16 @@ row(_columns = columns)
   width: total-width * ((gutter-width + gridsystem-width(_columns)) / gridsystem-width(_columns))
   margin: 0 total-width * (((gutter-width * .5) / gridsystem-width(_columns)) * -1)
 
+fixed_right_column(x, _columns = columns)
+  display: inline
+  float: right
+  width: x
+  margin: 0 total-width * ((gutter-width * .5) / gridsystem-width(_columns))
+
+full_column(_columns = columns)
+  overflow: hidden
+  margin: 0 total-width * ((gutter-width * .5) / gridsystem-width(_columns))
+
 column(x, _columns = columns)
   display: inline
   float: left

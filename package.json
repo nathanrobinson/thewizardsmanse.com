@@ -18,5 +18,9 @@
   },
   "devDependencies": {
     "hexo-cli": "^1.0.2"
+  },
+  "scripts": {
+    "build": "./node_modules/hexo-cli/bin/hexo generate",
+    "start": "./node_modules/hexo-cli/bin/hexo server"
   }
 }
