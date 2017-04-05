@@ -114,6 +114,11 @@ So&#8230; if a 12&#8243; whip can pick up all three UHF stations on the second f
 
 The setup worked perfectly and I can now receive CBS, ABC, NBC, FOX, and CW on all my TVs and capture cards.
 
+---
+Update 4/16/2017:
+I moved the WIP antenna up above the second story an now I get even more channels, including **PBS**.
+---
+
 <div class="comment-body">
   <p>
     &nbsp;
