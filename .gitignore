@@ -2,3 +2,4 @@
 /wwwroot
 /node_modules
 *debug*.log
+db.json
