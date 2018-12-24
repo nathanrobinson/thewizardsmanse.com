@@ -1,2 +1,4 @@
 /public
+/wwwroot
 /node_modules
+*debug*.log
