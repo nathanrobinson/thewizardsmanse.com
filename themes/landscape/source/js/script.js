@@ -1,4 +1,7 @@
 (function($){
+  if (window.location.protocol === 'http:') {
+    window.location.href = window.location.href.replace(/^http:/, 'https:');
+  }
   if (Running != 10) {
     var message = "<p>This site uses non-intrusive advertisements to fund free content, please consider disabling your ad blocking software or whitelisting www.thewizardsmanse.com.</p>";
     var list = document.getElementsByTagName("article");
