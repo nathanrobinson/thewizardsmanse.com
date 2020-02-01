@@ -2,6 +2,7 @@
 menu:
   Home: /
   Archives: /archives
+  Songs: /categories/Songs
 rss: /atom.xml
 
 # Content
@@ -31,7 +32,6 @@ show_count: false
 google_analytics: 'UA-36145597-1'
 favicon: /favicon.png
 twitter:
-google_plus:
 fb_admins:
 fb_app_id:
 disqus_shortname: 'thewizardsmanse'
