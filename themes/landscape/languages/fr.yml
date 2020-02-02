@@ -10,6 +10,7 @@ archive_a: Archives
 archive_b: "Archives: %s"
 page: Page %d
 recent_posts: Articles récents
+recent_songs: Latest Songs
 newer: Récent
 older: Ancien
 share: Partager
