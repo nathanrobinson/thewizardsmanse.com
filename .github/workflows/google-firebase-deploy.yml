@@ -14,8 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-node@master
-    with:
-      node-version: '12'
+      with:
+        node-version: '12'
     - run: yarn --frozen-lockfile --non-interactive --prefer-offline
     - run: yarn build
     - uses: w9jds/firebase-action@master
