@@ -1,7 +1,5 @@
 /public
 /wwwroot
-!wwwroot/404.html
-!wwwroot/ads.txt
 /node_modules
 *debug*.log
 db.json
