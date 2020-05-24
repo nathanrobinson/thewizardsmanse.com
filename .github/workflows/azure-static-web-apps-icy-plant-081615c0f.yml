@@ -28,6 +28,11 @@ jobs:
         app_location: '/' # App source code path
         app_artifact_location: 'wwwroot' # Built app content directory - optional
         ###### End of Repository/Build Configurations ######
+    - uses: actions/upload-artifact@v2
+    - name: Upload Artifact  
+      with:
+        name: zipped-output
+        path: **/*.zip:  
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
