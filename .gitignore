@@ -1,5 +1,6 @@
 /public
 /wwwroot
+!wwwroot/404.html
 /node_modules
 *debug*.log
 db.json
