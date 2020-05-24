@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build": "hexo generate && ls -l wwwroot",
     "start": "hexo server",
     "clean": "hexo clean"
   },
