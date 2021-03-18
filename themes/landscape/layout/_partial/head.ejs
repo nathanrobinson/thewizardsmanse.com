@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%- partial('google-analytics') %>
   <meta charset="utf-8">
   <%
   var title = page.title;
@@ -35,7 +36,6 @@
   <script>
   var Running=1;
   </script>
-  <%- partial('google-analytics') %>
   <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58dfd0dabd89c500112d0fc8&product=inline-share-buttons"></script>
   <%- js('js/ads') %>
 </head>
