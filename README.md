@@ -1,3 +1,2 @@
 ### The Wizard's Manse ###
-![Azure Static Web Apps CI/CD](https://github.com/nathanrobinson/thewizardsmanse.com/workflows/Azure%20Static%20Web%20Apps%20CI/CD/badge.svg)
-
+![Google Firebase CI Deploy](https://github.com/nathanrobinson/thewizardsmanse.com/workflows/Google%20Firebase%20CI%20Deploy/badge.svg)
