@@ -10,11 +10,10 @@ archive_a: Archives
 archive_b: "Archives: %s"
 page: Page %d
 recent_posts: Articles récents
-recent_songs: Latest Songs
 newer: Récent
 older: Ancien
 share: Partager
-powered_by: Propulsé by
+powered_by: Propulsé par
 rss_feed: Flux RSS
 category: Catégorie
 tag: Mot-clé
