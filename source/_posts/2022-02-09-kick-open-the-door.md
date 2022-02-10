@@ -75,12 +75,15 @@ Here are the current bosses:
 </style>
 
 <script>
-    window.addEventListener('DOMContentLoaded', () => $.getJSON('https://firebasestorage.googleapis.com/v0/b/thewizardsmanse-8e843.appspot.com/o/kotd.json?alt=media&token=7c506959-68ae-401b-83a6-c1513592f23b', data => {
+    window.addEventListener('DOMContentLoaded', () => $.getJSON('https://firebasestorage.googleapis.com/v0/b/thewizardsmanse-8e843.appspot.com/o/kotd.json?alt=media', data => {
         const bossList = $('#boss-list');
         data.forEach(boss => {
             const bossInfo = $('<div class="boss-info"></div>');
             bossInfo.append(`<div class="header"><a href="https://www.reddit.com${boss.permalink}">${boss.title}</a></div>`);
-            const bossContent = $(`<div class="boss-content"><img src="${boss.thumbnail}"></img></div>`);
+            const bossContent = $(`<div class="boss-content"><a href="https://www.reddit.com${boss.permalink}"><img src="${boss.thumbnail}"></img></a></div>`);
+            const totalHP = boss.title.match(/\[Health:([0-9]+)\]/)[1];
+            const remainingHP = boss.link_flair_text.match(/\[Health: ([0-9]+)\]/)[1];
+            bossContent.append(`<div class="hp"> / ${totalHP}</div>`)
             const bossAttributes = $('<div class="boss-attributes"></div>');
             const weak = $(`<span class="weak">${boss.weak.join(', ')}</span>`);
             bossAttributes.append(weak);
