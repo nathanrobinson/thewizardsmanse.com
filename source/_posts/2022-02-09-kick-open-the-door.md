@@ -19,6 +19,7 @@ This game features a unique mechanic where you interact by posting commands as c
 You should check it out.
 
 Here are the current bosses:
+<span id="last-update"></span>
 <div id="boss-list"></div>
 
  [1]: https://www.reddit.com
@@ -82,6 +83,7 @@ Here are the current bosses:
 <script>
     window.addEventListener('DOMContentLoaded', () => $.getJSON('https://firebasestorage.googleapis.com/v0/b/thewizardsmanse-8e843.appspot.com/o/kotd.json?alt=media', data => {
         const bossList = $('#boss-list');
+        const lastUpdate = $('#last-update');
         data.forEach(boss => {
             const bossInfo = $('<div class="boss-info"></div>');
             bossInfo.append(`<div class="header"><a href="https://www.reddit.com${boss.permalink}">${boss.title}</a></div>`);
@@ -99,6 +101,7 @@ Here are the current bosses:
             bossContent.append(bossAttributes);
             bossInfo.append(bossContent)
             bossList.append(bossInfo);
+            lastUpdate.text(new Date(boss.generated));
         });
     }));
 </script>
