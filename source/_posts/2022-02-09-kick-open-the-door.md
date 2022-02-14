@@ -68,7 +68,9 @@ Here are the current bosses:
         padding: 8px;
     }
     .boss-info .header a {
+        display: block;
         color: white;
+        text-align: center;
     }
     .boss-content {
         padding: 8px 16px 16px 16px;
@@ -86,11 +88,11 @@ Here are the current bosses:
         const lastUpdate = $('#last-update');
         data.forEach(boss => {
             const bossInfo = $('<div class="boss-info"></div>');
-            bossInfo.append(`<div class="header"><a href="https://www.reddit.com${boss.permalink}">${boss.title}</a></div>`);
-            const bossContent = $(`<div class="boss-content"><a href="https://www.reddit.com${boss.permalink}"><img src="${boss.thumbnail}"></img></a></div>`);
             const totalHP = boss.title.match(/\[Health:([0-9]+)\]/)[1];
+            const title = boss.title.replace(/\[Health:[0-9]+\]/, '');
             const remainingHP = boss.link_flair_text.match(/\[Health: ([0-9]+)\]/)[1];
-            bossContent.append(`<div class="hp">${remainingHP} / ${totalHP}</div>`)
+            bossInfo.append(`<div class="header"><a href="https://www.reddit.com${boss.permalink}">${title}<span class="hp">[Health: ${remainingHP} / ${totalHP}]</span></a></div>`);
+            const bossContent = $(`<div class="boss-content"><a href="https://www.reddit.com${boss.permalink}"><img src="${boss.thumbnail}"></img></a></div>`);
             const bossAttributes = $('<div class="boss-attributes"></div>');
             const weak = $(`<span class="weak">${boss.weak.join(', ')}</span>`);
             bossAttributes.append(weak);
