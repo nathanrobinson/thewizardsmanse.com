@@ -72,13 +72,11 @@ Here are the current bosses:
         color: white;
         text-align: center;
     }
+    .boss-info .header a .hp {
+        display: block;
+    }
     .boss-content {
         padding: 8px 16px 16px 16px;
-    }
-    .boss-content .hp {
-        padding: 5px;
-        margin: 5px;
-        text-align: center;
     }
 </style>
 
