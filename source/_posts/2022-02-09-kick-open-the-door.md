@@ -63,6 +63,42 @@ Here are the current bosses:
     .boss-attributes span.resist {
         background: #d98b8b;
     }
+    .boss-attributes span span {
+        padding-left: 1em;
+    }
+    .boss-attributes span span:before {
+        font-size: 8px;
+    }
+    .boss-attributes span.Havoc:before {
+        content: '⚔'
+    }
+    .boss-attributes span.Almighty:before {
+        content: '👼'
+    }
+    .boss-attributes span.Sinful:before {
+        content: '😈'
+    }
+    .boss-attributes span.Bless:before {
+        content: '✝'
+    }
+    .boss-attributes span.Curse:before {
+        content: '☠'
+    }
+    .boss-attributes span.Lawful:before {
+        content: '🏛'
+    }
+    .boss-attributes span.Order:before {
+        content: '☯'
+    }
+    .boss-attributes span.Chaos:before {
+        content: '🗯'
+    }
+    .boss-attributes span.Light:before {
+        content: '☀'
+    }
+    .boss-attributes span.Dark:before {
+        content: '🌌'
+    }
     .boss-info .header {
         background: #6091de;
         padding: 8px;
@@ -92,11 +128,14 @@ Here are the current bosses:
             bossInfo.append(`<div class="header"><a href="https://www.reddit.com${boss.permalink}">${title}<span class="hp">[Health: ${remainingHP} / ${totalHP}]</span></a></div>`);
             const bossContent = $(`<div class="boss-content"><a href="https://www.reddit.com${boss.permalink}"><img src="${boss.thumbnail}"></img></a></div>`);
             const bossAttributes = $('<div class="boss-attributes"></div>');
-            const weak = $(`<span class="weak">${boss.weak.join(', ')}</span>`);
+            const weak = $('<span class="weak"></span>');
+            boss.weak.forEach(x => weak.append(`<span class="${x}">${x}</span>`));
             bossAttributes.append(weak);
-            const neutral = $(`<span class="neutral">${boss.neutral.join(', ')}</span>`);
+            const neutral = $('<span class="neutral"></span>');
+            boss.neutral.forEach(x => neutral.append(`<span class="${x}">${x}</span>`));
             bossAttributes.append(neutral);
-            const resist = $(`<span class="resist">${boss.resist.join(', ')}</span>`);
+            const resist = $('<span class="resist"></span>');
+            boss.resist.forEach(x => resist.append(`<span class="${x}">${x}</span>`));
             bossAttributes.append(resist);
             bossContent.append(bossAttributes);
             bossInfo.append(bossContent)
