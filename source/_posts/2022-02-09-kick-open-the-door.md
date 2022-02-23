@@ -70,6 +70,10 @@ Here are the current bosses:
         font-size: 1.2em;
         padding-right: 0.15em;
         margin-left: -0.5em;
+        text-decoration: none;
+        color: #ccc;
+        font-family: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", Times, Symbola, Aegyptus, Code2000, Code2001, Code2002, Musica, serif, LastResort;
+        font-variant-emoji: emoji;
     }
     .boss-attributes span.Havoc:before {
         content: '⚔'
