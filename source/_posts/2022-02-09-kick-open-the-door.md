@@ -64,10 +64,12 @@ Here are the current bosses:
         background: #d98b8b;
     }
     .boss-attributes span span {
-        padding-left: 1em;
+        padding: 0 0.2em;
     }
     .boss-attributes span span:before {
-        font-size: 8px;
+        font-size: 1.2em;
+        padding-right: 0.15em;
+        margin-left: -0.5em;
     }
     .boss-attributes span.Havoc:before {
         content: '⚔'
