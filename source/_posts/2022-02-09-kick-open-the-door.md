@@ -21,7 +21,11 @@ You should check it out.
 Here are the current bosses:
 <span id="last-update"></span>
 <div id="boss-list"></div>
+
+
+And here is what is in the shop until:
 <span id="shop-expires"></span>
+
 <pre id="shop-info"></pre>
 
  [1]: https://www.reddit.com
