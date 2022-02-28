@@ -26,7 +26,7 @@ Here are the current bosses:
 And here is what is in the shop until:
 <span id="shop-expires"></span>
 
-<pre id="shop-info"></pre>
+<div id="shop-info"></div>
 
  [1]: https://www.reddit.com
  [2]: https://www.reddit.com/r/kickopenthedoor
@@ -69,10 +69,10 @@ And here is what is in the shop until:
     .boss-attributes span.resist {
         background: #d98b8b;
     }
-    .boss-attributes span span {
+    span.element {
         padding: 0 0.2em;
     }
-    .boss-attributes span span:before {
+    span.element:before {
         font-size: 1.2em;
         padding-right: 0.15em;
         margin-left: -0.5em;
@@ -81,34 +81,34 @@ And here is what is in the shop until:
         font-family: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", Times, Symbola, Aegyptus, Code2000, Code2001, Code2002, Musica, serif, LastResort;
         font-variant-emoji: emoji;
     }
-    .boss-attributes span.Havoc:before {
+    span.element.Havoc:before {
         content: '⚔'
     }
-    .boss-attributes span.Almighty:before {
+    span.element.Almighty:before {
         content: '👼'
     }
-    .boss-attributes span.Sinful:before {
+    span.element.Sinful:before {
         content: '😈'
     }
-    .boss-attributes span.Bless:before {
+    span.element.Bless:before {
         content: '✝'
     }
-    .boss-attributes span.Curse:before {
+    span.element.Curse:before {
         content: '☠'
     }
-    .boss-attributes span.Lawful:before {
+    span.element.Lawful:before {
         content: '🏛'
     }
-    .boss-attributes span.Order:before {
+    span.element.Order:before {
         content: '☯'
     }
-    .boss-attributes span.Chaos:before {
+    span.element.Chaos:before {
         content: '🗯'
     }
-    .boss-attributes span.Light:before {
+    span.element.Light:before {
         content: '☀'
     }
-    .boss-attributes span.Dark:before {
+    span.element.Dark:before {
         content: '🌌'
     }
     .boss-info .header {
@@ -130,12 +130,6 @@ And here is what is in the shop until:
 
 <script>
     window.addEventListener('DOMContentLoaded', () => $.getJSON('https://firebasestorage.googleapis.com/v0/b/thewizardsmanse-8e843.appspot.com/o/kotd.json?alt=media', data => {
-        const shop = $('#shop-info');
-        shop.html(data.shop.text);
-        
-        const shopExpires = $('#shop-expires');
-        shopExpires.text(new Date(data.shop.expires * 1000));
-        
         const lastUpdate = $('#last-update');
         lastUpdate.text(new Date(data.generated));
 
@@ -149,17 +143,27 @@ And here is what is in the shop until:
             const bossContent = $(`<div class="boss-content"><a href="https://www.reddit.com${boss.permalink}"><img src="${boss.thumbnail}"></img></a></div>`);
             const bossAttributes = $('<div class="boss-attributes"></div>');
             const weak = $('<span class="weak"></span>');
-            boss.weak.forEach(x => weak.append(`<span class="${x}">${x}</span>`));
+            boss.weak.forEach(x => weak.append(`<span class="element ${x}">${x}</span>`));
             bossAttributes.append(weak);
             const neutral = $('<span class="neutral"></span>');
-            boss.neutral.forEach(x => neutral.append(`<span class="${x}">${x}</span>`));
+            boss.neutral.forEach(x => neutral.append(`<span class="element ${x}">${x}</span>`));
             bossAttributes.append(neutral);
             const resist = $('<span class="resist"></span>');
-            boss.resist.forEach(x => resist.append(`<span class="${x}">${x}</span>`));
+            boss.resist.forEach(x => resist.append(`<span class="element ${x}">${x}</span>`));
             bossAttributes.append(resist);
             bossContent.append(bossAttributes);
             bossInfo.append(bossContent)
             bossList.append(bossInfo);
+        });
+
+        const shopExpires = $('#shop-expires');
+        shopExpires.text(new Date(data.shop.expires * 1000));
+
+        const shop = $('#shop-info');
+        const shopTable = $('<table><tr><th>Id</th><th>Name</th><th>Price></th><th>Damage</th><th>Duration</th><th>Element</th></tr></table>');
+        data.shop.items.forEach(item => {
+            const row = $(`<tr><td>${item.id}</td><td>${item.name}</td><td>${item.price}</td><td>${item.damage}</td><td>${item.duration}</td><td><span class="element ${item.element}">${item.element}</span></td></tr>`);
+            shopTable.append(row);
         });
     }));
 </script>
