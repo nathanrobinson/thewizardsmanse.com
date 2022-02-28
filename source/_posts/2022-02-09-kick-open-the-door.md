@@ -159,7 +159,7 @@ And here is what is in the shop until:
         const shopExpires = $('#shop-expires');
         shopExpires.text(new Date(data.shop.expires * 1000));
 
-        const shopTable = $('<table><tr><th>Id</th><th>Name</th><th>Price></th><th>Damage</th><th>Duration</th><th>Element</th></tr></table>');
+        const shopTable = $('<table><tr><th>Id</th><th>Name</th><th>Price</th><th>Damage</th><th>Duration</th><th>Element</th></tr></table>');
         data.shop.items.forEach(item => {
             const row = $(`<tr><td>${item.id}</td><td>${item.name}</td><td>${item.price}</td><td>${item.damage}</td><td>${item.duration}</td><td><span class="element ${item.element}">${item.element}</span></td></tr>`);
             shopTable.append(row);
