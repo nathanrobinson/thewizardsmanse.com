@@ -21,6 +21,8 @@ You should check it out.
 Here are the current bosses:
 <span id="last-update"></span>
 <div id="boss-list"></div>
+<span id="shop-expires"></span>
+<pre id="shop-info"></pre>
 
  [1]: https://www.reddit.com
  [2]: https://www.reddit.com/r/kickopenthedoor
@@ -124,9 +126,17 @@ Here are the current bosses:
 
 <script>
     window.addEventListener('DOMContentLoaded', () => $.getJSON('https://firebasestorage.googleapis.com/v0/b/thewizardsmanse-8e843.appspot.com/o/kotd.json?alt=media', data => {
-        const bossList = $('#boss-list');
+        const shop = $('#shop-info');
+        shop.html(data.shop.text);
+        
+        const shopExpires = $('#shop-expires');
+        shopExpires.text(new Date(data.shop.expires * 1000));
+        
         const lastUpdate = $('#last-update');
-        data.forEach(boss => {
+        lastUpdate.text(new Date(data.generated));
+
+        const bossList = $('#boss-list');
+        data.posts.forEach(boss => {
             const bossInfo = $('<div class="boss-info"></div>');
             const totalHP = boss.title.match(/\[Health:([0-9]+)\]/)[1];
             const title = boss.title.replace(/\[Health:[0-9]+\]/, '');
@@ -146,7 +156,6 @@ Here are the current bosses:
             bossContent.append(bossAttributes);
             bossInfo.append(bossContent)
             bossList.append(bossInfo);
-            lastUpdate.text(new Date(boss.generated));
         });
     }));
 </script>
