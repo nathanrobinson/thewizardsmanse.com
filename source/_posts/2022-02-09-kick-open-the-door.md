@@ -165,6 +165,6 @@ And here is what is in the shop until:
             shopTable.append(row);
         });
         const shop = $('#shop-info');
-        shop.appaend(shopTable);
+        shop.append(shopTable);
     }));
 </script>
