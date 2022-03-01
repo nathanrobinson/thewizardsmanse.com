@@ -130,8 +130,45 @@ And here is what is in the shop until:
 
 <script>
     window.addEventListener('DOMContentLoaded', () => $.getJSON('https://firebasestorage.googleapis.com/v0/b/thewizardsmanse-8e843.appspot.com/o/kotd.json?alt=media', data => {
-        const lastUpdate = $('#last-update');
-        lastUpdate.text(new Date(data.generated));
+
+        const formatter = new Intl.RelativeTimeFormat(undefined, {
+            numeric: 'auto'
+        });
+
+        const DIVISIONS = [
+            { amount: 60, name: 'seconds' },
+            { amount: 60, name: 'minutes' },
+            { amount: 24, name: 'hours' },
+            { amount: 7, name: 'days' },
+            { amount: 4.34524, name: 'weeks' },
+            { amount: 12, name: 'months' },
+            { amount: Number.POSITIVE_INFINITY, name: 'years' }
+        ];
+
+        function formatTimeAgo(date) {
+            let duration = (date - new Date()) / 1000
+
+            for (let i = 0; i <= DIVISIONS.length; i++) {
+                const division = DIVISIONS[i]
+                if (Math.abs(duration) < division.amount) {
+                return formatter.format(Math.round(duration), division.name)
+                }
+                duration /= division.amount
+            }
+        }
+
+        const generatedDate = new Date(data.generated);
+        const expiresDate = new Date(data.shop.expires * 1000);
+
+        function formatDates() {
+            const lastUpdate = $('#last-update');
+            const shopExpires = $('#shop-expires');
+            lastUpdate.html(`<span title="${generatedDate}">${formatTimeAgo(generatedDate)}</span>`);
+            shopExpires.html(`<span title="${expiresDate}">${formatTimeAgo(expiresDate)}</span>`);
+        }
+
+        formatDates();
+        setInterval(formatDates, 60000)
 
         const bossList = $('#boss-list');
         data.posts.forEach(boss => {
@@ -155,9 +192,6 @@ And here is what is in the shop until:
             bossInfo.append(bossContent)
             bossList.append(bossInfo);
         });
-
-        const shopExpires = $('#shop-expires');
-        shopExpires.text(new Date(data.shop.expires * 1000));
 
         const shopTable = $('<table><tr><th>Id</th><th>Name</th><th>Price</th><th>Damage</th><th>Duration</th><th>Element</th></tr></table>');
         data.shop.items.forEach(item => {
