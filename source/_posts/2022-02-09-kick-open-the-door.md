@@ -59,6 +59,12 @@ You should check it out.
         #raid-times div.attack-time:nth-child(even) {
             background: #eee;
         }
+        #raid-times div.attack-time.skipped {
+            color: rgb(255, 229, 145);
+        }
+        #raid-times div.attack-time.sniper {
+            color: rgb(255, 162, 181);
+        }
         #raid-times div.attack-time.kill {
             background: rgba(170, 238, 170, 0.251);
         }
@@ -165,20 +171,36 @@ You should check it out.
                 killTag.innerText += ` (${killingAttackTime - raidStart})`;
                 const seen = [];
                 let firstDupe = undefined;
-                raidAttacks.map(x => {
+                attacks.filter(x => 
+                    x?.created >= raidStart &&
+                    (x?.created <= lastAttack || x?.created <= killingAttackTime)
+                    && x?.body.match(/!attack/i))
+                .reverse()
+                .map(x => {
                     const div = document.createElement('div');
                     div.className = 'attack-time';
+                    const isSniper = !x.author_flair_text.includes(race);
                     if (x === killingAttack) {
                         div.classList.add('kill');
-                    }
-                    if (seen.includes(x.author) && x !== killingAttack) {
-                        firstDupe = x;
-                        div.classList.add('dupe');
-                    } else if (firstDupe && firstDupe !== x) {
-                        div.classList.add('late');
-                    } else {
                         seen.push(x.author);
+                    } else if (!isSniper) {
+                        if (seen.includes(x.author) && x !== killingAttack) {
+                            firstDupe = x;
+                            div.classList.add('dupe');
+                        } else if (firstDupe && firstDupe !== x) {
+                            div.classList.add('late');
+                        } else {
+                            seen.push(x.author);
+                        }
                     }
+                    if (isSniper) {
+                        div.classList.add('sniper');
+                    }
+                    const botReply = !x.replies?.data?.children?.length ? undefined : x.replies.data.children.map(x => x.data).find(x => x.author === 'KickOpenTheDoorBot');
+                    if ((!botReply || botReply.body.includes('Sorry, this boss is already dead'))
+                        && x.created < killingAttackTime) {
+                            div.classList.add('skipped');
+                        }
                     div.innerText = `${x.author} : ${x.created - raidStart}`;
                     resultsDiv.append(div);
                 });
