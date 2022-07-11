@@ -60,25 +60,25 @@ You should check it out.
             background: #eee;
         }
         #raid-times div.attack-time.skipped {
-            color: rgb(255, 229, 145);
+            color: rgb(190 145 1);
         }
         #raid-times div.attack-time.sniper {
-            color: rgb(255, 162, 181);
+            color: rgb(235 97 125);
         }
         #raid-times div.attack-time.kill {
-            background: rgba(170, 238, 170, 0.251);
+            background: rgba(170, 238, 170, 0.5);
         }
         #raid-times div.attack-time.dupe {
-            background: rgba(238, 238, 170, 0.251);
+            background: rgba(238, 238, 170, 0.5);
         }
         #raid-times div.attack-time.late {
-            background: rgba(238, 170, 170, 0.251);
+            background: rgba(238, 170, 170, 0.5);
         }
         #raid-times div.attack-time:nth-child(even).dupe {
-            background: rgba(238, 238, 170, 0.343);
+            background: rgba(238, 238, 170, 0.75);
         }
         #raid-times div.attack-time:nth-child(even).late {
-            background: rgba(238, 170, 170, 0.343);
+            background: rgba(238, 170, 170, 0.75);
         }
     </style>
     <script>
