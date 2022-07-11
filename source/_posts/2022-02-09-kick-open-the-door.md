@@ -23,20 +23,20 @@ You should check it out.
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
     <style>
         @media only screen and (max-width: 400px) {
-            #damage {
+            #damage, #raid-times {
                 margin: 1rem 0;
                 width: 100%;
             }
         }
         @media only screen and (min-width: 401px) {
-            #damage {
+            #damage, #raid-times {
                 margin: 1rem;
             }
         }
         #damage-wrapper {
             overflow-x: auto;
         }
-        div#damage {
+        #damage, #raid-times {
             display: inline-block;
             color: #777;
             background: #ddd;
@@ -57,7 +57,7 @@ You should check it out.
             background: #eee;
         }
         #raid-times div.attack-time:nth-child(even) {
-            background: rgb(95, 95, 95);
+            background: #eee;
         }
         #raid-times div.attack-time.kill {
             background: rgba(170, 238, 170, 0.251);
