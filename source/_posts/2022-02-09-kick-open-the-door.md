@@ -56,6 +56,24 @@ You should check it out.
         div#damage table tr:nth-child(even) {
             background: #eee;
         }
+        #raid-times div.attack-time:nth-child(even) {
+            background: rgb(95, 95, 95);
+        }
+        #raid-times div.attack-time.kill {
+            background: rgba(170, 238, 170, 0.251);
+        }
+        #raid-times div.attack-time.dupe {
+            background: rgba(238, 238, 170, 0.251);
+        }
+        #raid-times div.attack-time.late {
+            background: rgba(238, 170, 170, 0.251);
+        }
+        #raid-times div.attack-time:nth-child(even).dupe {
+            background: rgba(238, 238, 170, 0.343);
+        }
+        #raid-times div.attack-time:nth-child(even).late {
+            background: rgba(238, 170, 170, 0.343);
+        }
     </style>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
@@ -115,8 +133,79 @@ You should check it out.
                 dataTable.insert(newData);
             }
             loadDamage().catch(error => console.error(error));
+            function processRaid(raidData, race) {
+                const resultsDiv = document.getElementById('raid-time-results');
+                resultsDiv.innerHtml = '';
+                const attacks = raidData[1].data.children.map(x => x.data);
+                const killingAttack = attacks.find(x => x?.replies?.data?.children?.find(y => y?.data?.body?.includes('**(KILL!)**') && y?.data?.author === 'KickOpenTheDoorBot'));
+                if (!killingAttack) {
+                    resultsDiv.innerText = 'No kill found';
+                    return;
+                }
+                const killTag = document.createElement('h4');
+                killTag.innerText = `Killed by ${killingAttack.author} (${killingAttack.author_flair_text}) at ${killingAttack.created}`;
+                resultsDiv.append(killTag);
+                const killingAttackTime = killingAttack.created;
+                const minRaidStartTime = killingAttackTime - 15;
+                const maxRaidEndTime = killingAttackTime + 15;
+                const raidAttacks = attacks.filter(x => x?.created >= minRaidStartTime && x?.created <= maxRaidEndTime && x?.author_flair_text?.includes(race) && x?.body.match(/!attack/i)).sort((a, b) => a.created - b.created);
+                if (!raidAttacks?.length) {
+                    return;
+                }
+                let raidStart = 0;
+                let lastAttack = 0;
+                for (const attack of raidAttacks) {
+                    if (attack.created > lastAttack + 5 && attack.created <= killingAttackTime) {
+                        raidStart = attack.created;
+                    }
+                    lastAttack = attack.created;
+                }
+                killTag.innerText += ` (${killingAttackTime - raidStart})`;
+                const seen = [];
+                let firstDupe = undefined;
+                raidAttacks.map(x => {
+                    const div = document.createElement('div');
+                    div.className = 'attack-time';
+                    if (x === killingAttack) {
+                        div.classList.add('kill');
+                    }
+                    if (seen.includes(x.author) && x !== killingAttack) {
+                        firstDupe = x;
+                        div.classList.add('dupe');
+                    } else if (firstDupe && firstDupe !== x) {
+                        div.classList.add('late');
+                    } else {
+                        seen.push(x.author);
+                    }
+                    div.innerText = `${x.author} : ${x.created - raidStart}`;
+                    resultsDiv.append(div);
+                });
+            }
+            async function loadRaidResults() {
+                const raidId = document.getElementById('raid-id').value;
+                if (!raidId) return;
+                const url = `https://www.reddit.com/r/KickOpenTheDoor/${raidId}.json?raw_json=1`;
+                const raidData = await fetchJson(url);
+                const race = document.getElementById('raid-race').value;
+                processRaid(raidData, race);
+            }
+            document.getElementById('load-raid').onclick = (ev) => loadRaidResults().catch(error => console.error(error));
         });
     </script>
+    <article id="raid-times">
+        <h3>Raid Times</h3>
+        <div id="raid-time-inputs">
+            <input id="raid-id" />
+            <select id="raid-race">
+                <option selected>Orc</option>
+                <option>Elf</option>
+                <option>Dwarf</option>
+                <option>Halfling</option>
+            </select>
+            <button type="button" role="button" id="load-raid">Load</button>
+        </div>
+        <div id="raid-time-results"></div>
+    </article>
     <article id="damage-wrapper">
         <div id="damage">
             <h3>Weapon Damage</h3>
