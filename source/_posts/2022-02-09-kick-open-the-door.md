@@ -36,6 +36,7 @@ You should check it out.
         div#damage {
             overflow-x: auto;
             background: rgb(102, 107, 105);
+            color: white;
             border-radius: 2px;
             display: block;
             min-height: 150px;
