@@ -1,1 +1,1 @@
-var Running=10;
+window.Running=10;

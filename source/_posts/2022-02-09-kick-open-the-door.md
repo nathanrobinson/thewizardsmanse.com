@@ -33,26 +33,28 @@ You should check it out.
                 margin: 1rem;
             }
         }
-        div#damage {
+        #damage-wrapper {
             overflow-x: auto;
-            background: rgb(102, 107, 105);
-            color: white;
-            border-radius: 2px;
-            display: block;
-            min-height: 150px;
-            position: relative;
-            box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
+        }
+        div#damage {
             display: inline-block;
+            color: #777;
+            background: #ddd;
+            -webkit-box-shadow: 0 -1px 4px #ccc inset;
+            box-shadow: 0 -1px 4px #ccc inset;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 3px;
         }
         div#damage table td,
         div#damage table th {
             padding: 0.3em;
         }
         div#damage table tr:first-of-type {
-            background: #6091de;
+            background: #dfffd278;
         }
         div#damage table tr:nth-child(even) {
-            background: rgb(70, 66, 66);
+            background: #eee;
         }
     </style>
     <script>
@@ -115,7 +117,7 @@ You should check it out.
             loadDamage().catch(error => console.error(error));
         });
     </script>
-    <article>
+    <article id="damage-wrapper">
         <div id="damage">
             <h3>Weapon Damage</h3>
             <table id="damage-table">
