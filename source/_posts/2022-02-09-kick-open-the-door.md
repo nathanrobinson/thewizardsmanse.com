@@ -135,7 +135,9 @@ You should check it out.
             loadDamage().catch(error => console.error(error));
             function processRaid(raidData, race) {
                 const resultsDiv = document.getElementById('raid-time-results');
-                resultsDiv.innerHtml = '';
+                while(resultsDiv.firstChild){
+                    resultsDiv.removeChild(resultsDiv.firstChild);
+                }
                 const attacks = raidData[1].data.children.map(x => x.data);
                 const killingAttack = attacks.find(x => x?.replies?.data?.children?.find(y => y?.data?.body?.includes('**(KILL!)**') && y?.data?.author === 'KickOpenTheDoorBot'));
                 if (!killingAttack) {
