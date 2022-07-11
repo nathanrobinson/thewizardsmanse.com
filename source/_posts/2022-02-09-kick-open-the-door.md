@@ -50,7 +50,7 @@ You should check it out.
         div#damage table th {
             padding: 0.3em;
         }
-        div#damage table tr:first-of-type {
+        div#damage table thead tr {
             background: #dfffd278;
         }
         div#damage table tr:nth-child(even) {
