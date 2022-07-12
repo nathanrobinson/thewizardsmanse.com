@@ -144,7 +144,19 @@ You should check it out.
                 while(resultsDiv.firstChild){
                     resultsDiv.removeChild(resultsDiv.firstChild);
                 }
-                const attacks = raidData[1].data.children.map(x => x.data);
+                function findAttacks(commentsArray) {
+                    const matches = [];
+                    for (const comment of commentsArray) {
+                        if (comment.body?.match(/!attack/i)) {
+                            matches.push(comment);
+                        }
+                        if (comment.replies?.data?.children?.length) {
+                            matches.push(...findAttacks(comment.replies.data.children.map(x => x.data)));
+                        }
+                    }
+                    return matches;
+                }
+                const attacks = findAttacks(raidData[1].data.children.map(x => x.data));
                 const killingAttack = attacks.find(x => x?.replies?.data?.children?.find(y => y?.data?.body?.includes('**(KILL!)**') && y?.data?.author === 'KickOpenTheDoorBot'));
                 if (!killingAttack) {
                     resultsDiv.innerText = 'No kill found';
@@ -171,12 +183,10 @@ You should check it out.
                 killTag.innerText += ` (${killingAttackTime - raidStart})`;
                 const seen = [];
                 let firstDupe = undefined;
-                attacks.filter(x => 
-                    x?.created >= raidStart &&
-                    (x?.created <= lastAttack || x?.created <= killingAttackTime)
-                    && x?.body.match(/!attack/i))
-                .reverse()
-                .map(x => {
+                attacks.filter(x => x.created >= raidStart && (x.created <= lastAttack || x.created <= killingAttackTime))
+                        .sort((a, b) => b.created - a.created)
+                        .reverse()
+                        .map(x => {
                     const div = document.createElement('div');
                     div.className = 'attack-time';
                     const isSniper = !x.author_flair_text.includes(race);
