@@ -189,7 +189,7 @@ You should check it out.
                         .map(x => {
                     const div = document.createElement('div');
                     div.className = 'attack-time';
-                    const isSniper = !x.author_flair_text.includes(race);
+                    const isSniper = !x.author_flair_text?.includes(race);
                     if (x === killingAttack) {
                         div.classList.add('kill');
                         seen.push(x.author);
