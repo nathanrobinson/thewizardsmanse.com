@@ -183,6 +183,7 @@ You should check it out.
                 killTag.innerText += ` (${killingAttackTime - raidStart})`;
                 const seen = [];
                 let firstDupe = undefined;
+                let isDead = false;
                 attacks.filter(x => x.created >= raidStart && (x.created <= lastAttack || x.created <= killingAttackTime))
                         .sort((a, b) => b.created - a.created)
                         .reverse()
@@ -191,6 +192,7 @@ You should check it out.
                     div.className = 'attack-time';
                     const isSniper = !x.author_flair_text?.includes(race);
                     if (x === killingAttack) {
+                        isDead = true;
                         div.classList.add('kill');
                         seen.push(x.author);
                     } else if (!isSniper) {
@@ -206,12 +208,13 @@ You should check it out.
                     if (isSniper) {
                         div.classList.add('sniper');
                     }
+                    div.innerText = `${x.author} : ${x.created - raidStart}`;
                     const botReply = !x.replies?.data?.children?.length ? undefined : x.replies.data.children.map(x => x.data).find(x => x.author === 'KickOpenTheDoorBot');
                     if ((!botReply || botReply.body.includes('Sorry, this boss is already dead'))
-                        && x.created < killingAttackTime) {
+                        && !isDead) {
+                            div.innerText += ' *';
                             div.classList.add('skipped');
                         }
-                    div.innerText = `${x.author} : ${x.created - raidStart}`;
                     resultsDiv.append(div);
                 });
             }
