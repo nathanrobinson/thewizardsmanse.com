@@ -128,28 +128,28 @@ You should check it out.
             content: '✖';
         }
         div.item-damage-display {
-            padding: 1em;
             overflow-x: auto;
-            background: rgb(142 149 146);
+            background: #eee;
             border-radius: 2px;
             min-height: 150px;
             position: relative;
             box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
             display: block;
         }
-        .item-damage-display h3 {background: rgb(108 108 108);padding: 1em;margin: -.75em;margin-bottom: 0;}
-        .damage-data {
-            margin: 0 -.85em;
+        .item-damage-display h3 {
+            background: rgb(108 108 108 / 39%);
+            padding: 1em;
+            margin: 0;
         }
         .damage-weak, .damage-neutral, .damage-resist {
             padding: 1em;
             flex: 1;
         }
         .damage-weak {
-            background: #698e69;
+            background: #94c19482;
         }
         .damage-resist {
-            background: #a07777;
+            background: #d1a5a587;
         }
         #damage-table a {
             cursor: pointer;
