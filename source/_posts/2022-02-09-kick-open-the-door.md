@@ -18,6 +18,7 @@ If you browse [reddit][1] and you're into gaming, check out [r/kickopenthedoor][
 This game features a unique mechanic where you interact by posting commands as comments on reddit posts. A bot takes your commands and posts a reply. All the redditors !attack boss posts and try to be the one who kills him. The game is enhanced by joining their discord server where you can partake in raids to kill the bosses.
 
 You should check it out.
+{% raw %}
 
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
@@ -612,6 +613,7 @@ You should check it out.
             </div>
         </div>
 </script>
+{% endraw %}
 
 [1]: https://www.reddit.com
 [2]: https://www.reddit.com/r/kickopenthedoor
