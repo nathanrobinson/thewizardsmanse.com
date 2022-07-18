@@ -123,8 +123,10 @@ You should check it out.
                 return data;
             }
             async function loadDamage() {
-                DamageModel.damage = await fetchJson('weapon-damage.json');
-                DamageModel.items = await fetchJson('item-master.json');
+                const asyncDamage = fetchJson('https://storage.googleapis.com/thewizardsmanse-8e843.appspot.com/weapon-damage.json');
+                const asyncItems = fetchJson('https://storage.googleapis.com/thewizardsmanse-8e843.appspot.com/item-master.json');
+                DamageModel.damage = await asyncDamage;
+                DamageModel.items = await asyncItems;
                 const template = document.getElementById('item-damage-template').innerHTML;
                 DamageModel.itemInfoTemplate = Handlebars.compile(template);
                 const dataTable = new simpleDatatables.DataTable("#damage-table", {
@@ -232,6 +234,10 @@ You should check it out.
             }
             loadDamage().catch(error => console.error(error));
             function processRaid(raidData, race) {
+                let raidStartTimeout = Number(document.getElementById('raid-start-timeout').value);
+                if (isNaN(raidStartTimeout) || !raidStartTimeout || raidStartTimeout < 0) {
+                    raidStartTimeout = 5;
+                }
                 const resultsDiv = document.getElementById('raid-time-results');
                 while(resultsDiv.firstChild){
                     resultsDiv.removeChild(resultsDiv.firstChild);
@@ -258,8 +264,8 @@ You should check it out.
                 killTag.innerText = `Killed by ${killingAttack.author} (${killingAttack.author_flair_text}) at ${killingAttack.created}`;
                 resultsDiv.append(killTag);
                 const killingAttackTime = killingAttack.created;
-                const minRaidStartTime = killingAttackTime - 15;
-                const maxRaidEndTime = killingAttackTime + 15;
+                const minRaidStartTime = killingAttackTime - raidStartTimeout;
+                const maxRaidEndTime = killingAttackTime + raidStartTimeout;
                 const raidAttacks = attacks.filter(x => x?.created >= minRaidStartTime && x?.created <= maxRaidEndTime && x?.author_flair_text?.includes(race) && x?.body.match(/!attack/i)).sort((a, b) => a.created - b.created);
                 if (!raidAttacks?.length) {
                     return;
@@ -267,7 +273,7 @@ You should check it out.
                 let raidStart = 0;
                 let lastAttack = 0;
                 for (const attack of raidAttacks) {
-                    if (attack.created > lastAttack + 5 && attack.created <= killingAttackTime) {
+                    if (attack.created > lastAttack + raidStartTimeout && attack.created <= killingAttackTime) {
                         raidStart = attack.created;
                     }
                     lastAttack = attack.created;
@@ -311,8 +317,21 @@ You should check it out.
                 });
             }
             async function loadRaidResults() {
-                const raidId = document.getElementById('raid-id').value;
+                const raidIdInput = document.getElementById('raid-id');
+                let raidId = raidIdInput.value;
                 if (!raidId) return;
+                const urlParts = raidId.split('/');
+                if (urlParts.length > 1) {
+                    if (urlParts.length === 4) {
+                        raidId = urlParts[3];
+                    } else if (urlParts.length >= 7) {
+                        raidId = urlParts[6];
+                    } else {
+                        raidId = '';
+                    }
+                    raidIdInput.value = raidId;
+                    if (!raidId) return;
+                }
                 const url = `https://www.reddit.com/r/KickOpenTheDoor/${raidId}.json?raw_json=1`;
                 const raidData = await fetchJson(url);
                 const race = document.getElementById('raid-race').value;
@@ -322,18 +341,19 @@ You should check it out.
         });
 </script>
 <article id="raid-times">
-        <h3>Raid Times</h3>
-        <div id="raid-time-inputs">
-            <input id="raid-id" />
-            <select id="raid-race">
-                <option selected>Orc</option>
-                <option>Elf</option>
-                <option>Dwarf</option>
-                <option>Halfling</option>
-            </select>
-            <button type="button" role="button" id="load-raid">Load</button>
-        </div>
-        <div id="raid-time-results"></div>
+    <h3>Raid Times</h3>
+    <div id="raid-time-inputs">
+        <input id="raid-id" />
+        <select id="raid-race">
+            <option selected>Orc</option>
+            <option>Elf</option>
+            <option>Dwarf</option>
+            <option>Halfling</option>
+        </select>
+        <input id="raid-start-timeout" value="5" width="3" />
+        <button type="button" role="button" id="load-raid">Load</button>
+    </div>
+    <div id="raid-time-results"></div>
 </article>
 <article id="damage-wrapper">
         <div id="damage">
