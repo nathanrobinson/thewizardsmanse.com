@@ -82,6 +82,78 @@ You should check it out.
         #raid-times div.attack-time:nth-child(even).late {
             background: rgba(238, 170, 170, 0.75);
         }
+        .damage-data, .damage-info, .damage-normal, .damage-crit, .damage-extra, .damage-total {
+            display: flex;
+            flex-direction: row;
+        }
+        .damage-info, .damage-normal, .damage-crit, .damage-extra, .damage-total {
+            flex-wrap: wrap;
+        }
+        .damage-info-row {
+            padding: .75em;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .damage-info-row >span.label {
+            font-weight: bold;
+        }
+        .damage-info-row >span {
+            min-width: 2em;
+            text-align: center;
+        }
+        .damage-info .damage-info-row >span {
+            padding: .5em;
+        }
+        .damage-data {
+            flex-wrap: nowrap;
+        }
+        .damage-data .damage-info-row {
+            flex: 1;
+        }
+        .damage-normal, .damage-crit, .damage-extra, .damage-total {
+            margin-left: 1em;
+            flex: 1;
+        }
+        .damage-data .damage-info-row >span {
+            flex: 1;
+        }
+        #item-damage-display-close {
+            cursor: pointer;
+            margin-right: 1em;
+            float: right;
+            display: inline;
+        }
+        #item-damage-display-close:before {
+            content: '✖';
+        }
+        div.item-damage-display {
+            padding: 1em;
+            overflow-x: auto;
+            background: rgb(142 149 146);
+            border-radius: 2px;
+            min-height: 150px;
+            position: relative;
+            box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
+            display: block;
+        }
+        .item-damage-display h3 {background: rgb(108 108 108);padding: 1em;margin: -.75em;margin-bottom: 0;}
+        .damage-data {
+            margin: 0 -.85em;
+        }
+        .damage-weak, .damage-neutral, .damage-resist {
+            padding: 1em;
+            flex: 1;
+        }
+        .damage-weak {
+            background: #698e69;
+        }
+        .damage-resist {
+            background: #a07777;
+        }
+        #damage-table a {
+            cursor: pointer;
+        }
 </style>
 <script>
         const DamageModel = {};
