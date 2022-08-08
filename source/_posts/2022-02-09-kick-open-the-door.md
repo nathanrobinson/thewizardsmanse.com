@@ -29,7 +29,8 @@ You should check it out.
     <div id="raid-time-inputs">
         <input id="raid-id" />
         <select id="raid-race">
-            <option selected>Orc</option>
+            <option selected>None</option>
+            <option>Orc</option>
             <option>Elf</option>
             <option>Dwarf</option>
             <option>Halfling</option>
