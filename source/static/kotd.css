@@ -1,0 +1,168 @@
+@media only screen and (max-width: 400px) {
+  #damage,
+  #raid-times {
+    margin: 1rem 0;
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 401px) {
+  #damage,
+  #raid-times {
+    margin: 1rem;
+  }
+}
+#damage-wrapper {
+  overflow-x: auto;
+}
+#damage,
+#raid-times {
+  display: inline-block;
+  color: #777;
+  background: #ddd;
+  -webkit-box-shadow: 0 -1px 4px #ccc inset;
+  box-shadow: 0 -1px 4px #ccc inset;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 3px;
+}
+div#damage table td,
+div#damage table th {
+  padding: 0.3em;
+}
+div#damage table thead tr {
+  background: #dfffd278;
+}
+div#damage table tr:nth-child(even) {
+  background: #eee;
+}
+#raid-times div.attack-time:nth-child(even) {
+  background: #eee;
+}
+#raid-times div.attack-time.skipped {
+  color: rgb(190 145 1);
+}
+#raid-times div.attack-time.sniper {
+  color: rgb(235 97 125);
+}
+#raid-times div.attack-time.kill {
+  background: rgba(170, 238, 170, 0.5);
+}
+
+#raid-times div.attack-time.dupe > span.info {
+  color: rgb(238, 238, 170);
+}
+
+#raid-times div.attack-time.late > span.info {
+  color: rgb(255, 185, 185);
+}
+
+#raid-times div.attack-time > span.cool-down {
+  color: rgb(185, 242, 255);
+}
+
+#raid-times div.attack-time.sniper span {
+  color: rgb(255, 115, 143);
+}
+
+#raid-times div.attack-time > span.Elf {
+  color: #dea1ff;
+}
+
+#raid-times div.attack-time > span.Dwarf {
+  color: #8799ff;
+}
+
+#raid-times div.attack-time > span.Orc {
+  color: #00dd37;
+}
+
+#raid-times div.attack-time > span.Halfling {
+  color: #edcd00;
+}
+
+.damage-data,
+.damage-info,
+.damage-normal,
+.damage-crit,
+.damage-extra,
+.damage-total {
+  display: flex;
+  flex-direction: row;
+}
+.damage-info,
+.damage-normal,
+.damage-crit,
+.damage-extra,
+.damage-total {
+  flex-wrap: wrap;
+}
+.damage-info-row {
+  padding: 0.75em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.damage-info-row > span.label {
+  font-weight: bold;
+}
+.damage-info-row > span {
+  min-width: 2em;
+  text-align: center;
+}
+.damage-info .damage-info-row > span {
+  padding: 0.5em;
+}
+.damage-data {
+  flex-wrap: nowrap;
+}
+.damage-data .damage-info-row {
+  flex: 1;
+}
+.damage-normal,
+.damage-crit,
+.damage-extra,
+.damage-total {
+  margin-left: 1em;
+  flex: 1;
+}
+.damage-data .damage-info-row > span {
+  flex: 1;
+}
+#item-damage-display-close {
+  cursor: pointer;
+  margin-right: 1em;
+  float: right;
+  display: inline;
+}
+#item-damage-display-close:before {
+  content: "✖";
+}
+div.item-damage-display {
+  overflow-x: auto;
+  background: #eee;
+  border-radius: 2px;
+  min-height: 150px;
+  position: relative;
+  box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
+  display: block;
+}
+.item-damage-display h3 {
+  background: rgb(108 108 108 / 39%);
+  padding: 1em;
+  margin: 0;
+}
+.damage-weak,
+.damage-neutral,
+.damage-resist {
+  padding: 1em;
+  flex: 1;
+}
+.damage-weak {
+  background: #94c19482;
+}
+.damage-resist {
+  background: #d1a5a587;
+}
+#damage-table a {
+  cursor: pointer;
+}
