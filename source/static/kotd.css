@@ -49,15 +49,15 @@ div#damage table tr:nth-child(even) {
 }
 
 #raid-times div.attack-time.dupe > span.info {
-  color: rgb(238, 238, 170);
+  color: rgb(179 179 179);
 }
 
 #raid-times div.attack-time.late > span.info {
-  color: rgb(255, 185, 185);
+  color: rgb(255 0 0);
 }
 
 #raid-times div.attack-time > span.cool-down {
-  color: rgb(185, 242, 255);
+  color: rgb(71 207 238);
 }
 
 #raid-times div.attack-time.sniper span {
