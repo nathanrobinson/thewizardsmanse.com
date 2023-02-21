@@ -17,12 +17,13 @@ jobs:
     - uses: actions/checkout@master
     - uses: actions/setup-node@master
       with:
-        node-version: '12'
+        node-version: '16'
     - run: yarn --frozen-lockfile --non-interactive --prefer-offline
     - run: yarn build
     - uses: w9jds/firebase-action@master
       with:
         args: deploy --only hosting
       env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        GCP_SA_KEY: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        
 
