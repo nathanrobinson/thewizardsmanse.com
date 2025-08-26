@@ -23,9 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Build
-        run: |
-          yarn --frozen-lockfile --non-interactive --prefer-offline
-          yarn build
+        run: npm run build
 
       - name: Deploy to Firebase Live Channel
         uses: FirebaseExtended/action-hosting-deploy@v0
