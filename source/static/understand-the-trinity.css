@@ -1,0 +1,228 @@
+.page-shell .workspace {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .page-shell .workspace {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  }
+}
+
+.page-shell .diagram-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  max-height: 400px;
+  padding: 1.75rem;
+}
+
+.page-shell svg {
+  width: min(100%, 360px);
+  height: auto;
+  touch-action: manipulation;
+}
+
+.page-shell .controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  min-height: 400px;
+  max-height: 400px;
+}
+
+.page-shell label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.page-shell .result-box {
+  background: rgba(15, 23, 42, 0.65);
+  border-left: 4px solid var(--accent);
+  border-radius: 14px;
+  padding: 1.2rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.page-shell .result-box.heresy-failed {
+  border-left-color: var(--danger);
+  background: rgba(239, 68, 68, 0.06);
+}
+
+.page-shell .heresy-badge {
+  align-self: flex-start;
+  padding: 0.26rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-shell .result-box.heresy-failed .heresy-badge {
+  background: rgba(239, 68, 68, 0.14);
+  color: var(--danger-soft);
+}
+
+.page-shell .heresy-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.page-shell .result-box.heresy-failed .heresy-title {
+  color: #fca5a5;
+}
+
+.page-shell .heresy-desc {
+  margin: 0;
+  color: var(--muted-strong);
+  line-height: 1.55;
+}
+
+.page-shell .logic-breakdown {
+  margin-top: 0.4rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.page-shell .btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 0 18px 30px -20px rgba(56, 189, 248, 0.7);
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.page-shell .btn-primary:hover,
+.page-shell .btn-primary:focus-visible {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.page-shell .node {
+  cursor: pointer;
+}
+
+.page-shell .node-circle {
+  fill: rgba(15, 23, 42, 0.9);
+  stroke: var(--accent);
+  stroke-width: 3;
+  transition: all 0.25s ease;
+}
+
+.page-shell .god-circle {
+  stroke: #c084fc;
+}
+
+.page-shell .node:hover .node-circle {
+  stroke: var(--accent);
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.7));
+}
+
+.page-shell .node-circle.active {
+  fill: var(--accent);
+}
+
+.page-shell .node-circle.heresy-active {
+  fill: var(--danger);
+  stroke: #fca5a5;
+  filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.7));
+}
+
+.page-shell .node-text {
+  fill: var(--text);
+  font-weight: 700;
+  font-size: 13px;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.page-shell .link-line {
+  stroke: rgba(148, 163, 184, 0.7);
+  stroke-width: 2;
+  transition:
+    stroke 0.25s ease,
+    stroke-width 0.25s ease;
+}
+
+.page-shell .link-line.pulse-error {
+  stroke: var(--danger);
+  stroke-width: 4;
+}
+
+.page-shell .axioms-list {
+  list-style: none;
+  padding: 1rem 1.1rem;
+  margin: 1rem 0;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.page-shell .table-container {
+  margin: 1rem 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.page-shell table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.page-shell th,
+.page-shell td {
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.page-shell th {
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(15, 23, 42, 0.82);
+}
+
+.page-shell .status-fail {
+  color: #fca5a5;
+  font-weight: 700;
+}
+
+.page-shell .logic-modal {
+  margin: 1em;
+  padding: 1em;
+  display: flow;
+  grid-column: span 2;
+}
